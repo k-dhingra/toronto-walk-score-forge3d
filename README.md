@@ -2,7 +2,11 @@
 
 A controlled Forge3D render of Toronto's Walk Score surface, including fixed-sample checks for visible grain.
 
-The script renders the same Toronto Walk Score surface three ways:
+![Toronto Walk Score Forge3D map](toronto-walk-score-forge3d.png)
+
+The repository contains the archived scraped scores, Toronto boundary, OpenStreetMap road export, input builder, publication renderer, and the fixed-sample diagnostic.
+
+The diagnostic renders the same Toronto Walk Score surface three ways:
 
 1. 64 fixed samples, no denoiser
 2. 264 fixed samples, no denoiser
@@ -10,20 +14,41 @@ The script renders the same Toronto Walk Score surface three ways:
 
 The seed, camera, materials, lighting, and compositor stay fixed. Adaptive sampling is disabled so Forge3D cannot stop early.
 
-## Run
+## Rebuild the map
 
-Install Forge3D from its source checkout, then install the small Python stack used by the experiment:
+Install the verified Forge3D revision and the Python dependencies:
 
 ```bash
-pip install -e /path/to/forge3d
-pip install numpy pillow
+git clone https://github.com/milos-agathon/forge3d.git
+git -C forge3d checkout f5db54f95d202681f95dad649162d18efdae8987
+pip install -e forge3d
+pip install -r requirements.txt
+```
+
+Rebuild the prepared terrain and texture from the archived scores, boundary, CARTO tiles, and OpenStreetMap roads:
+
+```bash
+python prepare_inputs.py
+```
+
+Render the labelled publication map with Forge3D's hybrid terrain path:
+
+```bash
+python render_map.py
+```
+
+Run the fixed-sample diagnostic:
+
+```bash
 python experiment.py
 ```
 
-Forge3D uses Vulkan here. Override `WGPU_BACKEND` before running if your build needs another backend.
+Forge3D uses Vulkan here. Override `WGPU_BACKEND` before running if your build needs another backend. `prepare_inputs.py` needs network access only for the CARTO basemap tiles; the archived score and road data are local.
 
 Outputs are written to `output/`:
 
+- `toronto-walk-score-forge3d.png`
+- `render-metadata.json`
 - `64-raw.png`
 - `264-raw.png`
 - `264-atrous.png`
@@ -44,4 +69,8 @@ This experiment narrows the fault. It does not identify it by itself. Material t
 
 ## Input
 
-`toronto_inputs.npz` contains the preprocessed heightfield, map texture, and Toronto mask used by the original render. It contains no addresses, URLs, or API credentials.
+`data/toronto_walkscore_extended.csv` is the archived 796-point scrape, including page titles and source URLs. `data/boundary/` contains the official municipal boundary, and `data/gta_major_roads.json` contains the Overpass road export.
+
+`toronto_inputs.npz` is the reproducible prepared fixture generated from those files. Run `scrape_walkscore.py` only when deliberately refreshing the archived scores; it replaces the CSV after at least 500 pages return valid scores.
+
+See [`SOURCES.md`](SOURCES.md) for dates, attribution, software revision, and third-party data terms.

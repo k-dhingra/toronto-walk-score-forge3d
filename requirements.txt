@@ -1,3 +1,5 @@
 numpy
 Pillow
-# Install Forge3D from its source checkout: pip install -e /path/to/forge3d
+pyshp
+scipy
+# Verified with https://github.com/milos-agathon/forge3d at commit f5db54f95d202681f95dad649162d18efdae8987
