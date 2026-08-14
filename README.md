@@ -1,6 +1,6 @@
-# Forge3D sampling experiment
+# Toronto Walk Score Forge3D
 
-A controlled test for grain in a Forge3D terrain render.
+A controlled Forge3D render of Toronto's Walk Score surface, including fixed-sample checks for visible grain.
 
 The script renders the same Toronto Walk Score surface three ways:
 
