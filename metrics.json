@@ -1,0 +1,26 @@
+{
+  "seed": 31,
+  "64_raw": {
+    "samples_used": 64,
+    "denoiser_used": "none",
+    "final_p95_delta": null,
+    "converged_ratio": null,
+    "target_samples": 64,
+    "adaptive": false
+  },
+  "264_raw": {
+    "samples_used": 264,
+    "denoiser_used": "none",
+    "final_p95_delta": null,
+    "converged_ratio": null,
+    "target_samples": 264,
+    "adaptive": false
+  },
+  "crop_mae_64_vs_264": 0.03713904693722725,
+  "crop_mae_264_vs_atrous": 1.6228647232055664,
+  "roughness": {
+    "64 RAW": 0.027884751558303833,
+    "264 RAW": 0.027882758527994156,
+    "264 + A-TROUS": 0.027480263262987137
+  }
+}

@@ -1,0 +1,3 @@
+numpy
+Pillow
+# Install Forge3D from its source checkout: pip install -e /path/to/forge3d
