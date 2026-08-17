@@ -1,0 +1,66 @@
+{
+  "frames": 352,
+  "variance": 0.003850421868264675,
+  "visible_path_traced_hits": 210475,
+  "surface_score_height_max_abs_error": 1.1920928955078125e-07,
+  "surface_score_height_correlation": 0.999368396737002,
+  "screen_lift_from_geometry_px": {
+    "min": 0.9654820189018665,
+    "median": 24.680742710038317,
+    "max": 36.68275129774051
+  },
+  "output": "C:\\tmp\\toronto-walk-score-forge3d-fixed\\output\\toronto-walk-score-elevation-fixed.png",
+  "rendered_surface_size": [
+    1120,
+    709
+  ],
+  "poster_size": [
+    3840,
+    2431
+  ],
+  "camera": {
+    "origin": [
+      1.763552379033616e-14,
+      249.4239420232751,
+      -144.00498006947552
+    ],
+    "look_at": [
+      0.0,
+      2.134000062942505,
+      0.0
+    ],
+    "up": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "fov_y": 20.0,
+    "exposure": 1.0
+  },
+  "height_storage": "native rows south-to-north; texture rows north-to-south",
+  "colour_binding": "Walk Score texture sampled at each path-traced terrain hit",
+  "orientation": "north-up map register: due-south camera raster mirrored horizontally so west is left and east is right",
+  "terrain_mesh": {
+    "source_grid": [
+      1600,
+      934
+    ],
+    "tessellated_grid": [
+      4096,
+      2391
+    ],
+    "interpolation": "bicubic height / Lanczos texture / nearest city boundary; no new score observations"
+  },
+  "poster_framing": {
+    "source_crop": [
+      127,
+      29,
+      982,
+      571
+    ],
+    "source_padding": [
+      0,
+      0
+    ]
+  }
+}

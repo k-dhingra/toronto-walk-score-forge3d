@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "valid_scores": 796,
+  "native_storage": "height rows are south-to-north for Forge3D terrain geometry",
+  "visual_storage": "texture rows are north-to-south; flipud(height) is its matching north-up visual field",
+  "native_fixture_exact": true,
+  "visual_height_exact": true,
+  "higher_score_to_lower_height_pairs": 0
+}
